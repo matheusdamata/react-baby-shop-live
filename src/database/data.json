@@ -1,0 +1,37 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "imageUrl": "http://localhost/products/pinkponey.jpg",
+      "name": "Pink Poney",
+      "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit nean commodo ligula eget dolor. Aenean massa. Cum sociis Theme natoque penatibus et magnis dis. Etiam ultricies nisi vel augue.",
+      "value": 27.90,
+      "stock": 10
+    }, 
+    {
+      "id": 2,
+      "imageUrl": "http://localhost/products/teddybear.jpg",
+      "name": "Teddy Bear",
+      "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit nean commodo ligula eget dolor. Aenean massa. Cum sociis Theme natoque penatibus et magnis dis. Etiam ultricies nisi vel augue.",
+      "value": 43.85,
+      "stock": 0
+    },
+    {
+      "id": 3,
+      "imageUrl": "http://localhost/products/stripedt-shirt.jpg",
+      "name": "Striped T-shirt",
+      "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit nean commodo ligula eget dolor. Aenean massa. Cum sociis Theme natoque penatibus et magnis dis. Etiam ultricies nisi vel augue.",
+      "value": 77.90,
+      "stock": 7
+    }
+    ,
+    {
+      "id": 4,
+      "imageUrl": "http://localhost/products/suspendershorts.jpg",
+      "name": "Suspender Shorts",
+      "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit nean commodo ligula eget dolor. Aenean massa. Cum sociis Theme natoque penatibus et magnis dis. Etiam ultricies nisi vel augue.",
+      "value": 57.90,
+      "stock": 7
+    }
+  ]
+}

@@ -8,4 +8,5 @@ export const defaultTheme = {
   'color-wishlist': '#fbfcf3',
   'color-mybag': '#fbfefe',
   'color-header-top-bar': '#65c4bc',
+  'color-boy': '#44476f',
 }

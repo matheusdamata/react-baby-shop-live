@@ -24,7 +24,7 @@ export const HeaderContainer = styled.div`
   align-items: center;
   justify-content: center;
 
-  margin-top: 2rem;
+  margin: 2rem 0;
 
   img {
     width: 4rem;
