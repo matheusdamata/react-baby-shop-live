@@ -23,8 +23,7 @@
       "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit nean commodo ligula eget dolor. Aenean massa. Cum sociis Theme natoque penatibus et magnis dis. Etiam ultricies nisi vel augue.",
       "value": 77.90,
       "stock": 7
-    }
-    ,
+    },
     {
       "id": 4,
       "imageUrl": "http://localhost/products/suspendershorts.jpg",
@@ -32,6 +31,64 @@
       "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit nean commodo ligula eget dolor. Aenean massa. Cum sociis Theme natoque penatibus et magnis dis. Etiam ultricies nisi vel augue.",
       "value": 57.90,
       "stock": 7
+    },
+    {
+      "id": 5,
+      "imageUrl": "http://localhost/products/ponytoy.jpg",
+      "name": "Pony Toy",
+      "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit nean commodo ligula eget dolor. Aenean massa. Cum sociis Theme natoque penatibus et magnis dis. Etiam ultricies nisi vel augue.",
+      "value": 57.90,
+      "stock": 7
+    },
+    {
+      "id": 6,
+      "imageUrl": "http://localhost/products/bluestripeddress.jpg",
+      "name": "Blue Striped Dress",
+      "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit nean commodo ligula eget dolor. Aenean massa. Cum sociis Theme natoque penatibus et magnis dis. Etiam ultricies nisi vel augue.",
+      "value": 57.90,
+      "stock": 7
+    },
+    {
+      "id": 7,
+      "imageUrl": "http://localhost/products/piggybank.jpg",
+      "name": "Piggy Bank",
+      "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit nean commodo ligula eget dolor. Aenean massa. Cum sociis Theme natoque penatibus et magnis dis. Etiam ultricies nisi vel augue.",
+      "value": 57.90,
+      "stock": 7
+    },
+    {
+      "id": 8,
+      "imageUrl": "http://localhost/products/fluffymonkey.jpg",
+      "name": "Fluffy Monkey",
+      "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit nean commodo ligula eget dolor. Aenean massa. Cum sociis Theme natoque penatibus et magnis dis. Etiam ultricies nisi vel augue.",
+      "value": 57.90,
+      "stock": 7
+    }
+  ],
+  "instagram": [
+    {
+      "id": 1,
+      "imageUrl": "http://localhost/instagram/00.jpg"
+    },
+    {
+      "id": 2,
+      "imageUrl": "http://localhost/instagram/01.jpg"
+    },
+    {
+      "id": 3,
+      "imageUrl": "http://localhost/instagram/02.jpg"
+    },
+    {
+      "id": 4,
+      "imageUrl": "http://localhost/instagram/03.jpg"
+    },
+    {
+      "id": 5,
+      "imageUrl": "http://localhost/instagram/04.jpg"
+    },
+    {
+      "id": 6,
+      "imageUrl": "http://localhost/instagram/05.jpg"
     }
   ]
 }

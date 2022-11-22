@@ -4,6 +4,7 @@ import {
   Container,
   HeaderContainer,
   HeaderTopBar,
+  MenuButtonContent,
   MenuContainer,
   SearchContainer,
 } from './style'
@@ -18,11 +19,26 @@ export function Header() {
       <HeaderContainer>
         <img src={Logo} alt="Imagem da logo do site" />
         <MenuContainer>
-          <button>Home</button>
-          <button>Pages</button>
-          <button>Shop</button>
-          <button>Blog</button>
-          <button>Elements</button>
+          <MenuButtonContent isMenuActive={true}>
+            Home
+            <hr />
+          </MenuButtonContent>
+          <MenuButtonContent isMenuActive={false}>
+            Pages
+            <hr />
+          </MenuButtonContent>
+          <MenuButtonContent isMenuActive={false}>
+            Shop
+            <hr />
+          </MenuButtonContent>
+          <MenuButtonContent isMenuActive={false}>
+            Blog
+            <hr />
+          </MenuButtonContent>
+          <MenuButtonContent isMenuActive={false}>
+            Elements
+            <hr />
+          </MenuButtonContent>
         </MenuContainer>
         <SearchContainer>
           <input type="text" placeholder="Search product" />

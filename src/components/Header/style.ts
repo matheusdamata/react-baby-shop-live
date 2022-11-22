@@ -48,12 +48,35 @@ export const MenuContainer = styled.div`
   display: flex;
   gap: 1rem;
   margin: 0 2rem;
+`
 
-  & > button {
-    font-size: 1.25rem;
-    font-weight: bold;
+type MenuButtonContentProps = {
+  isMenuActive: boolean
+}
+
+export const MenuButtonContent = styled.button<MenuButtonContentProps>`
+  font-size: 1.25rem;
+  font-weight: bold;
+
+  border: 0;
+
+  position: relative;
+
+  background: transparent;
+
+  hr {
+    display: ${(props) => (props.isMenuActive ? 'block' : 'none')};
+
+    width: 100%;
+    height: 10px;
+
+    position: absolute;
+    margin-top: -0.75rem;
+
     border: 0;
-    background: transparent;
+
+    background: ${(props) => props.theme['base-button-hover']};
+    z-index: -1;
   }
 `
 

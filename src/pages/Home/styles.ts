@@ -102,6 +102,8 @@ export const ProductsContainer = styled.div`
   gap: 2rem;
 
   margin-bottom: 2rem;
+
+  cursor: pointer;
 `
 
 export const ProductContent = styled.div`
@@ -122,4 +124,13 @@ export const ProductContent = styled.div`
     width: auto;
     height: 280px;
   }
+`
+
+export const InstagramContainer = styled.section`
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 `
