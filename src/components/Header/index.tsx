@@ -11,13 +11,24 @@ import {
 import { Heart, MagnifyingGlass, Handbag } from 'phosphor-react'
 
 import Logo from '../../assets/logo.svg'
+import { useNavigate } from 'react-router-dom'
 
 export function Header() {
+  const navigate = useNavigate()
+
+  function handleClickLogo() {
+    navigate('/')
+  }
+
   return (
     <Container>
       <HeaderTopBar>Compre acima de R$250,00 e ganhe frete grátis</HeaderTopBar>
       <HeaderContainer>
-        <img src={Logo} alt="Imagem da logo do site" />
+        <img
+          src={Logo}
+          alt="Imagem da logo do site"
+          onClick={handleClickLogo}
+        />
         <MenuContainer>
           <MenuButtonContent isMenuActive={true}>
             Home

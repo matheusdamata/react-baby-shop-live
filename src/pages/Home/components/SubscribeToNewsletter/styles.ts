@@ -9,6 +9,8 @@ export const Container = styled.section`
 
   background: ${(props) => props.theme['base-input-contrast']};
   color: ${(props) => props.theme.white};
+
+  padding: 0 2rem;
 `
 
 export const Content = styled.div`
@@ -41,6 +43,7 @@ export const Content = styled.div`
     padding: 0 2rem;
 
     font-family: 'Open Sans', sans-serif;
+    color: ${(props) => props.theme.white};
 
     &::placeholder {
       color: ${(props) => props.theme.white};
@@ -66,6 +69,19 @@ export const Content = styled.div`
 
     & svg {
       margin-left: 0.5rem;
+    }
+  }
+
+  @media (min-width: 425px) and (max-width: 768px) {
+    gap: 1rem;
+
+    h1 {
+      font-size: 1.25rem;
+      margin: 0;
+    }
+
+    button {
+      font-size: 1rem;
     }
   }
 `

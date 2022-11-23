@@ -68,27 +68,33 @@
   "instagram": [
     {
       "id": 1,
-      "imageUrl": "http://localhost/instagram/00.jpg"
+      "imageUrl": "http://localhost/instagram/00.jpg",
+      "url": "https://www.instagram.com/"
     },
     {
       "id": 2,
-      "imageUrl": "http://localhost/instagram/01.jpg"
+      "imageUrl": "http://localhost/instagram/01.jpg",
+      "url": "https://www.instagram.com/"
     },
     {
       "id": 3,
-      "imageUrl": "http://localhost/instagram/02.jpg"
+      "imageUrl": "http://localhost/instagram/02.jpg",
+      "url": "https://www.instagram.com/"
     },
     {
       "id": 4,
-      "imageUrl": "http://localhost/instagram/03.jpg"
+      "imageUrl": "http://localhost/instagram/03.jpg",
+      "url": "https://www.instagram.com/"
     },
     {
       "id": 5,
-      "imageUrl": "http://localhost/instagram/04.jpg"
+      "imageUrl": "http://localhost/instagram/04.jpg",
+      "url": "https://www.instagram.com/"
     },
     {
       "id": 6,
-      "imageUrl": "http://localhost/instagram/05.jpg"
+      "imageUrl": "http://localhost/instagram/05.jpg",
+      "url": "https://www.instagram.com/"
     }
   ]
 }

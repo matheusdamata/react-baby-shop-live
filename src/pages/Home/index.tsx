@@ -17,6 +17,7 @@ import CategoryButtonGirl from '../../assets/category-buttons/girl.png'
 import api from '../../config/api'
 import { SubscribeToNewsletter } from './components/SubscribeToNewsletter'
 import { Instagram } from './components/Instagram'
+import { useNavigate } from 'react-router-dom'
 
 type ProductsType = {
   id: number
@@ -30,6 +31,7 @@ type ProductsType = {
 type InstagramType = {
   id: number
   imageUrl: string
+  url: string
 }
 
 export function Home() {
@@ -37,6 +39,8 @@ export function Home() {
   const [photosPostInstagram, setPhotosPostInstagram] = useState<
     InstagramType[]
   >([])
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -53,6 +57,10 @@ export function Home() {
 
     fetchProducts()
   }, [])
+
+  function handleViewProduct(id: number) {
+    navigate(`/product/${id}`)
+  }
 
   return (
     <Container>
@@ -88,7 +96,11 @@ export function Home() {
 
       <ProductsContainer>
         {products.map((product) => (
-          <ProductContent key={product.id}>
+          <ProductContent
+            key={product.id}
+            onClick={() => handleViewProduct(product.id)}
+          >
+            {/* <NavLink to= ></NavLink> */}
             <img src={product.imageUrl} alt="Imagem do produto" />
             <strong>{product.name}</strong>
             <span>
@@ -105,7 +117,7 @@ export function Home() {
 
       <InstagramContainer>
         {photosPostInstagram.map((photo) => (
-          <Instagram key={photo.id} image={photo.imageUrl} />
+          <Instagram key={photo.id} image={photo.imageUrl} url={photo.url} />
         ))}
       </InstagramContainer>
     </Container>

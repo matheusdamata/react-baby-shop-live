@@ -1,14 +1,24 @@
 import styled, { css } from 'styled-components'
 
 export const Container = styled.footer`
-  width: 70rem;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  margin: 4rem 0 0 0;
+`
+
+export const FooterMenuContainer = styled.div`
+  max-width: 70rem;
 
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
 
-  margin: 4rem 0;
+  padding: 0 2rem;
 `
 
 export const Content = styled.div`
@@ -92,4 +102,39 @@ export const IconContent = styled.span<IconContentProps>`
   svg {
     color: ${(props) => props.theme.white};
   }
+`
+
+export const FooterDescriptionAndCards = styled.div`
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: 'Open Sans', sans-serif;
+  color: ${(props) => props.theme['base-text-footer']};
+
+  padding: 1rem 0;
+  margin-top: 3rem;
+
+  background: ${(props) => props.theme['base-input']};
+
+  a {
+    text-decoration: none;
+    color: ${(props) => props.theme['base-text']};
+
+    &:hover {
+      color: ${(props) => props.theme['base-button']};
+    }
+  }
+`
+
+export const FooterDescriptionAndCardsContent = styled.div`
+  width: 70rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 2rem;
 `

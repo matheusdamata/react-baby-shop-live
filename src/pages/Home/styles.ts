@@ -15,6 +15,10 @@ export const CategoryButtonsContainer = styled.div`
   margin: 2rem 0;
 
   gap: 2rem;
+
+  @media (min-width: 425px) and (max-width: 768px) {
+    flex-direction: column;
+  }
 `
 
 type CategoryButtonContentProps = {
@@ -39,7 +43,6 @@ export const CategoryButtonContent = styled.div<CategoryButtonContentProps>`
       props.variant === 'girl'
         ? props.theme['base-button']
         : props.theme['color-boy']};
-
   border-radius: 12px;
 
   color: ${(props) => props.theme.white};
@@ -48,6 +51,13 @@ export const CategoryButtonContent = styled.div<CategoryButtonContentProps>`
     props.variant === 'girl'
       ? props.theme['base-button']
       : props.theme['color-boy']};
+
+  cursor: pointer;
+  transition: all 0.2s;
+
+  &:hover {
+    transform: scale(1.025);
+  }
 
   img {
     width: 350px;
@@ -104,6 +114,10 @@ export const ProductsContainer = styled.div`
   margin-bottom: 2rem;
 
   cursor: pointer;
+
+  @media (min-width: 425px) and (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `
 
 export const ProductContent = styled.div`
@@ -115,6 +129,10 @@ export const ProductContent = styled.div`
     font-size: 1.5rem;
   }
 
+  strong:hover {
+    color: ${(props) => props.theme['base-button']};
+  }
+
   span {
     font-size: 1.25rem;
     color: ${(props) => props.theme['base-button']};
@@ -122,14 +140,23 @@ export const ProductContent = styled.div`
 
   img {
     width: auto;
-    height: 280px;
+    height: 250px;
+
+    transition: all 0.2s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 `
 
 export const InstagramContainer = styled.section`
   width: 100%;
+  height: 19rem;
 
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+
   flex-direction: row;
   align-items: center;
   justify-content: center;

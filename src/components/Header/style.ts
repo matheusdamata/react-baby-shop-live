@@ -26,9 +26,11 @@ export const HeaderContainer = styled.div`
 
   margin: 2rem 0;
 
-  img {
+  & > img {
     width: 4rem;
     height: auto;
+
+    cursor: pointer;
   }
 
   input {
