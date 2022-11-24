@@ -8,6 +8,11 @@ export const defaultTheme = {
   'base-input-border': '#72cbc4',
   'base-button': '#f85f89',
   'base-button-hover': '#d7f5fa',
+  'base-text-amount': '#9f9e9e',
+  'base-border-amount': '#eeeeee',
+
+  'tabs-root': '#f7fdfe',
+  'tabs-root-border': '#d7f5fa',
 
   'color-wishlist': '#fbfcf3',
   'color-mybag': '#fbfefe',

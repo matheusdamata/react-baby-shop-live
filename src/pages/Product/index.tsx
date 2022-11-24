@@ -1,7 +1,28 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+
+import { Check, Minus, Plus } from 'phosphor-react'
+
 import api from '../../config/api'
-import { Container } from './styles'
+
+import * as Tabs from '@radix-ui/react-tabs'
+
+import {
+  AmountProductContent,
+  ButtonAmountProduct,
+  ButtonWishList,
+  Container,
+  LeftSide,
+  ProductContainer,
+  QuantityContainer,
+  QuantityContent,
+  RightSide,
+  TabsContent,
+  TabsProductContainer,
+  TabsRoot,
+  TabsTrigger,
+  WishListContent,
+} from './styles'
 
 type ProductProps = {
   id: number
@@ -14,6 +35,7 @@ type ProductProps = {
 
 export function Product() {
   const [product, setProduct] = useState<ProductProps>()
+  const [amountProduct, setAmountProduct] = useState(1)
 
   const params = useParams()
 
@@ -30,9 +52,73 @@ export function Product() {
     getProductItem()
   }, [params.id])
 
+  const isDisabledButton = amountProduct <= 1
+
   return (
     <Container>
-      <h1>{product?.name}</h1>
+      <ProductContainer>
+        <LeftSide>
+          <img src={product?.imageUrl} alt="Imagem do produto" />
+        </LeftSide>
+        <RightSide>
+          <h1>{product?.name}</h1>
+          <strong>
+            R${' '}
+            {product?.value.toLocaleString('pt-br', {
+              minimumFractionDigits: 2,
+            })}
+          </strong>
+          <p>{product?.description}</p>
+
+          <AmountProductContent>
+            <QuantityContainer>
+              <span>Quantity</span>
+              <QuantityContent>
+                <button
+                  onClick={() => setAmountProduct((state) => state - 1)}
+                  disabled={isDisabledButton}
+                >
+                  <Minus size={16} weight="fill" />
+                </button>
+                {amountProduct}
+                <button onClick={() => setAmountProduct((state) => state + 1)}>
+                  <Plus size={16} weight="fill" />
+                </button>
+              </QuantityContent>
+            </QuantityContainer>
+
+            <ButtonAmountProduct>Add to cart</ButtonAmountProduct>
+          </AmountProductContent>
+
+          <WishListContent>
+            <ButtonWishList>
+              <Check size={18} weight="bold" />
+              BROWSE WISHLIST
+            </ButtonWishList>
+          </WishListContent>
+        </RightSide>
+      </ProductContainer>
+
+      <TabsProductContainer>
+        <TabsRoot defaultValue="description">
+          <Tabs.List>
+            <TabsTrigger value="description">Description</TabsTrigger>
+            <TabsTrigger value="add-information">
+              Additional Information
+            </TabsTrigger>
+            <TabsTrigger value="reviews">Reviews</TabsTrigger>
+          </Tabs.List>
+          <TabsContent value="description">
+            <p>Description</p>
+          </TabsContent>
+          <TabsContent value="add-information">
+            <p>Additional Information</p>
+          </TabsContent>
+          <TabsContent value="reviews">
+            <p>Reviews</p>
+          </TabsContent>
+        </TabsRoot>
+      </TabsProductContainer>
     </Container>
   )
 }
