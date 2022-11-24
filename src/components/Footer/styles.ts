@@ -56,6 +56,17 @@ export const Content = styled.div`
   a:hover {
     color: ${(props) => props.theme['base-button']};
   }
+
+  @media (min-width: 425px) and (max-width: 768px) {
+    strong {
+      font-size: 1.25rem;
+    }
+
+    p,
+    a {
+      font-size: 0.75rem;
+    }
+  }
 `
 
 export const IconContainer = styled.div`
@@ -125,6 +136,12 @@ export const FooterDescriptionAndCards = styled.div`
 
     &:hover {
       color: ${(props) => props.theme['base-button']};
+    }
+  }
+
+  @media (min-width: 425px) and (max-width: 768px) {
+    span {
+      font-size: 0.75rem;
     }
   }
 `

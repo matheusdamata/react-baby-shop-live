@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import {
+  CategoryBorderButton,
   CategoryButtonContent,
   CategoryButtonInfo,
   CategoryButtonsContainer,
@@ -67,23 +68,29 @@ export function Home() {
       <Banner />
 
       <CategoryButtonsContainer>
-        <CategoryButtonContent variant="girl">
-          <img src={CategoryButtonGirl} alt="" />
-          <CategoryButtonInfo>
-            <strong>Modern Girl</strong>
-            <span>From school to the seaside. Summer inspired collection.</span>
-          </CategoryButtonInfo>
-        </CategoryButtonContent>
+        <CategoryBorderButton variant="girl">
+          <CategoryButtonContent>
+            <img src={CategoryButtonGirl} alt="" />
+            <CategoryButtonInfo>
+              <strong>Modern Girl</strong>
+              <span>
+                From school to the seaside. Summer inspired collection.
+              </span>
+            </CategoryButtonInfo>
+          </CategoryButtonContent>
+        </CategoryBorderButton>
 
-        <CategoryButtonContent variant="boy">
-          <img src={CategoryButtonBoy} alt="" />
-          <CategoryButtonInfo>
-            <strong>Urban Boy</strong>
-            <span>
-              Designed to follow your child though fun and adventures.
-            </span>
-          </CategoryButtonInfo>
-        </CategoryButtonContent>
+        <CategoryBorderButton variant="boy">
+          <CategoryButtonContent>
+            <img src={CategoryButtonBoy} alt="" />
+            <CategoryButtonInfo>
+              <strong>Urban Boy</strong>
+              <span>
+                Designed to follow your child though fun and adventures.
+              </span>
+            </CategoryButtonInfo>
+          </CategoryButtonContent>
+        </CategoryBorderButton>
       </CategoryButtonsContainer>
 
       <PopularProductsContainer>

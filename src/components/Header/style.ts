@@ -56,15 +56,15 @@ type MenuButtonContentProps = {
   isMenuActive: boolean
 }
 
-export const MenuButtonContent = styled.button<MenuButtonContentProps>`
+export const MenuButtonContent = styled.a<MenuButtonContentProps>`
   font-size: 1.25rem;
   font-weight: bold;
+  text-decoration: none;
+  color: ${(props) => props.theme['base-text']};
 
   border: 0;
 
   position: relative;
-
-  background: transparent;
 
   hr {
     display: ${(props) => (props.isMenuActive ? 'block' : 'none')};
@@ -100,6 +100,17 @@ export const SearchContainer = styled.div`
 
     & svg {
       color: ${(props) => props.theme.white};
+    }
+  }
+
+  @media (min-width: 425px) and (max-width: 768px) {
+    input {
+      display: none;
+    }
+
+    button {
+      padding: 0.5rem;
+      border-radius: 50%;
     }
   }
 `

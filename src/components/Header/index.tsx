@@ -30,23 +30,23 @@ export function Header() {
           onClick={handleClickLogo}
         />
         <MenuContainer>
-          <MenuButtonContent isMenuActive={true}>
+          <MenuButtonContent href="/" isMenuActive={true}>
             Home
             <hr />
           </MenuButtonContent>
-          <MenuButtonContent isMenuActive={false}>
+          <MenuButtonContent href="/" isMenuActive={false}>
             Pages
             <hr />
           </MenuButtonContent>
-          <MenuButtonContent isMenuActive={false}>
+          <MenuButtonContent href="/" isMenuActive={false}>
             Shop
             <hr />
           </MenuButtonContent>
-          <MenuButtonContent isMenuActive={false}>
+          <MenuButtonContent href="/" isMenuActive={false}>
             Blog
             <hr />
           </MenuButtonContent>
-          <MenuButtonContent isMenuActive={false}>
+          <MenuButtonContent href="/" isMenuActive={false}>
             Elements
             <hr />
           </MenuButtonContent>

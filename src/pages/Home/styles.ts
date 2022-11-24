@@ -25,7 +25,25 @@ type CategoryButtonContentProps = {
   variant: 'girl' | 'boy'
 }
 
-export const CategoryButtonContent = styled.div<CategoryButtonContentProps>`
+export const CategoryBorderButton = styled.div<CategoryButtonContentProps>`
+  border: 2px dashed ${(props) => props.theme['base-input']};
+  box-shadow: 0 0 0 5px
+    ${(props) =>
+      props.variant === 'girl'
+        ? props.theme['base-button']
+        : props.theme['color-boy']};
+  border-radius: 12px;
+
+  background: ${(props) =>
+    props.variant === 'girl'
+      ? props.theme['base-button']
+      : props.theme['color-boy']};
+
+  position: relative;
+  overflow: hidden;
+`
+
+export const CategoryButtonContent = styled.div`
   width: 350px;
   height: 170px;
 
@@ -37,23 +55,10 @@ export const CategoryButtonContent = styled.div<CategoryButtonContentProps>`
 
   padding: 1rem 1rem 1rem 0;
 
-  border: 2px dashed ${(props) => props.theme['base-input']};
-  box-shadow: 0 0 0 5px
-    ${(props) =>
-      props.variant === 'girl'
-        ? props.theme['base-button']
-        : props.theme['color-boy']};
-  border-radius: 12px;
-
   color: ${(props) => props.theme.white};
 
-  background: ${(props) =>
-    props.variant === 'girl'
-      ? props.theme['base-button']
-      : props.theme['color-boy']};
-
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.3s ease;
 
   &:hover {
     transform: scale(1.025);
@@ -104,6 +109,12 @@ export const PopularProductsContainer = styled.section`
     font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
   }
+
+  @media (min-width: 425px) and (max-width: 768px) {
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
 `
 
 export const ProductsContainer = styled.div`
@@ -152,7 +163,7 @@ export const ProductContent = styled.div`
 
 export const InstagramContainer = styled.section`
   width: 100%;
-  height: 19rem;
+  height: 100%;
 
   display: grid;
   grid-template-columns: repeat(6, 1fr);
