@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { NavLink } from 'react-router-dom'
 
 export const Container = styled.header`
   display: flex;
@@ -50,13 +51,13 @@ export const MenuContainer = styled.div`
   display: flex;
   gap: 1rem;
   margin: 0 2rem;
+
+  & .active {
+    color: ${(props) => props.theme['base-button']};
+  }
 `
 
-type MenuButtonContentProps = {
-  isMenuActive: boolean
-}
-
-export const MenuButtonContent = styled.a<MenuButtonContentProps>`
+export const MenuNavLink = styled(NavLink)`
   font-size: 1.25rem;
   font-weight: bold;
   text-decoration: none;
@@ -67,7 +68,7 @@ export const MenuButtonContent = styled.a<MenuButtonContentProps>`
   position: relative;
 
   hr {
-    display: ${(props) => (props.isMenuActive ? 'block' : 'none')};
+    display: none;
 
     width: 100%;
     height: 10px;

@@ -107,7 +107,6 @@ export function Home() {
             key={product.id}
             onClick={() => handleViewProduct(product.id)}
           >
-            {/* <NavLink to= ></NavLink> */}
             <img src={product.imageUrl} alt="Imagem do produto" />
             <strong>{product.name}</strong>
             <span>

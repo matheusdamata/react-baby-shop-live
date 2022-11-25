@@ -4,7 +4,7 @@ import {
   Container,
   HeaderContainer,
   HeaderTopBar,
-  MenuButtonContent,
+  MenuNavLink,
   MenuContainer,
   SearchContainer,
 } from './style'
@@ -30,26 +30,11 @@ export function Header() {
           onClick={handleClickLogo}
         />
         <MenuContainer>
-          <MenuButtonContent href="/" isMenuActive={true}>
-            Home
-            <hr />
-          </MenuButtonContent>
-          <MenuButtonContent href="/" isMenuActive={false}>
-            Pages
-            <hr />
-          </MenuButtonContent>
-          <MenuButtonContent href="/" isMenuActive={false}>
-            Shop
-            <hr />
-          </MenuButtonContent>
-          <MenuButtonContent href="/" isMenuActive={false}>
-            Blog
-            <hr />
-          </MenuButtonContent>
-          <MenuButtonContent href="/" isMenuActive={false}>
-            Elements
-            <hr />
-          </MenuButtonContent>
+          <MenuNavLink to="/">Home</MenuNavLink>
+          <MenuNavLink to="product/4">Pages</MenuNavLink>
+          <MenuNavLink to="product/1">Shop</MenuNavLink>
+          <MenuNavLink to="product/2">Blog</MenuNavLink>
+          <MenuNavLink to="product/3">Elements</MenuNavLink>
         </MenuContainer>
         <SearchContainer>
           <input type="text" placeholder="Search product" />

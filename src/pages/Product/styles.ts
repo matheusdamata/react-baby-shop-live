@@ -164,11 +164,48 @@ export const TabsTrigger = styled(Tabs.Trigger)`
   border: 0;
   background: transparent;
 
+  color: ${(props) => props.theme['base-text']};
+
   &:hover {
     color: ${(props) => props.theme['base-button']};
+  }
+
+  &[data-state='active'] {
+    background: ${(props) => props.theme.white};
   }
 `
 
 export const TabsContent = styled(Tabs.Content)`
   padding: 2rem;
+
+  span {
+    font-size: 1.25rem;
+    color: ${(props) => props.theme['base-text']};
+  }
+
+  p {
+    margin-top: 1rem;
+
+    font-family: 'Open sans', sans-serif;
+    color: ${(props) => props.theme['base-text-footer']};
+  }
+
+  &[data-state='active'] {
+    background: ${(props) => props.theme.white};
+  }
+`
+
+export const RelatedProductsContainer = styled.div`
+  width: 100%;
+  margin-top: 4rem;
+
+  h2 {
+    margin-bottom: 2rem;
+  }
+`
+
+export const RelatedProductsContent = styled.div`
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1;
 `

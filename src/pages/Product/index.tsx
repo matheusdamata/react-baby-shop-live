@@ -16,6 +16,8 @@ import {
   ProductContainer,
   QuantityContainer,
   QuantityContent,
+  RelatedProductsContainer,
+  RelatedProductsContent,
   RightSide,
   TabsContent,
   TabsProductContainer,
@@ -23,6 +25,7 @@ import {
   TabsTrigger,
   WishListContent,
 } from './styles'
+import { RelatedProducts } from './components/RelatedProducts'
 
 type ProductProps = {
   id: number
@@ -33,8 +36,20 @@ type ProductProps = {
   value: number
 }
 
+type RelatedProductsProps = {
+  id: number
+  description: string
+  imageUrl: string
+  name: string
+  stock: number
+  value: number
+}
+
 export function Product() {
   const [product, setProduct] = useState<ProductProps>()
+  const [relatedProducts, setRelatedProducts] = useState<
+    RelatedProductsProps[]
+  >([])
   const [amountProduct, setAmountProduct] = useState(1)
 
   const params = useParams()
@@ -43,7 +58,10 @@ export function Product() {
     async function getProductItem() {
       try {
         const product = await api.getProduct(Number(params.id))
+        const relatedProducts = await api.getRelatedProducts()
+
         setProduct(product)
+        setRelatedProducts(relatedProducts)
       } catch (e) {
         console.error('Tente novamente mais tarde!', e)
       }
@@ -109,7 +127,16 @@ export function Product() {
             <TabsTrigger value="reviews">Reviews</TabsTrigger>
           </Tabs.List>
           <TabsContent value="description">
-            <p>Description</p>
+            <strong>Description</strong>
+            <p>
+              Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.
+              Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum.
+              Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur
+              ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas
+              tempus, tellus eget condimentum rhoncus, sem quam semper libero,
+              sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit
+              vel, luctus pulvinar
+            </p>
           </TabsContent>
           <TabsContent value="add-information">
             <p>Additional Information</p>
@@ -119,6 +146,18 @@ export function Product() {
           </TabsContent>
         </TabsRoot>
       </TabsProductContainer>
+
+      <RelatedProductsContainer>
+        <h2>Realted Products</h2>
+        <RelatedProductsContent>
+          {relatedProducts.map((relatedProduct) => (
+            <RelatedProducts
+              key={relatedProduct.id}
+              relatedProduct={relatedProduct}
+            />
+          ))}
+        </RelatedProductsContent>
+      </RelatedProductsContainer>
     </Container>
   )
 }
