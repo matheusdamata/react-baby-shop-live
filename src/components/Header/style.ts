@@ -83,7 +83,7 @@ export const MenuNavLink = styled(NavLink)`
   }
 `
 
-export const SearchContainer = styled.div`
+export const SearchContainer = styled.form`
   display: flex;
   flex-direction: row;
 
@@ -135,6 +135,8 @@ export const ButtonContent = styled.button<ButtonContentProps>`
   align-items: center;
   justify-content: center;
 
+  position: relative;
+
   border: 2px dashed
     ${(props) => (props.variant === 'wishlist' ? '#dce086' : '#d7f5fa')};
 
@@ -144,4 +146,25 @@ export const ButtonContent = styled.button<ButtonContentProps>`
     props.variant === 'wishlist'
       ? props.theme['color-wishlist']
       : props.theme['color-mybag']};
+
+  span {
+    width: 1rem;
+    height: 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    position: absolute;
+    margin-top: -50px;
+    margin-right: -25px;
+
+    font-family: 'Open sans', sans-serif;
+    font-size: 0.625rem;
+    color: ${(props) => props.theme.white};
+
+    background: ${(props) => props.theme['base-button']};
+  }
 `

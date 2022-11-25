@@ -3,6 +3,15 @@ import axios from 'axios'
 const BASE_URL = 'http://localhost:3000'
 
 export default {
+  searchProducts: async (query: string) => {
+    const response = await axios.get(`${BASE_URL}/products`, {
+      params: {
+        _order: 'desc',
+        q: query,
+      },
+    })
+    return response.data
+  },
   getProducts: async () => {
     const response = await axios.get(`${BASE_URL}/products`)
     return response.data

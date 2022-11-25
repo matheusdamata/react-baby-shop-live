@@ -1,3 +1,7 @@
+import * as z from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useForm } from 'react-hook-form'
+
 import {
   ButtonContent,
   ButtonsContainer,
@@ -12,12 +16,39 @@ import { Heart, MagnifyingGlass, Handbag } from 'phosphor-react'
 
 import Logo from '../../assets/logo.svg'
 import { useNavigate } from 'react-router-dom'
+import api from '../../config/api'
+import { useContext } from 'react'
+import { Context } from '../../contexts/UserContext'
+
+const searchFormSchema = z.object({
+  query: z.string(),
+})
+
+type SearchFormInputs = z.infer<typeof searchFormSchema>
 
 export function Header() {
+  const { carts } = useContext(Context)
+
+  const { register, handleSubmit, reset } = useForm<SearchFormInputs>({
+    resolver: zodResolver(searchFormSchema),
+  })
+
   const navigate = useNavigate()
 
   function handleClickLogo() {
     navigate('/')
+  }
+
+  async function handleSearchProducts(data: SearchFormInputs) {
+    try {
+      const json = api.searchProducts(data.query)
+      const response = await json
+    } catch (e) {
+      console.error(e)
+    } finally {
+      reset()
+    }
+    return console.log(data.query)
   }
 
   return (
@@ -36,8 +67,12 @@ export function Header() {
           <MenuNavLink to="product/2">Blog</MenuNavLink>
           <MenuNavLink to="product/3">Elements</MenuNavLink>
         </MenuContainer>
-        <SearchContainer>
-          <input type="text" placeholder="Search product" />
+        <SearchContainer onSubmit={handleSubmit(handleSearchProducts)}>
+          <input
+            type="text"
+            placeholder="Search product"
+            {...register('query')}
+          />
           <button>
             <MagnifyingGlass size={20} weight="bold" />
           </button>
@@ -50,6 +85,7 @@ export function Header() {
           <ButtonContent variant="mybag">
             <Handbag size={25} weight="bold" />
             My bag
+            {carts.length > 0 ? <span>{carts.length}</span> : null}
           </ButtonContent>
         </ButtonsContainer>
       </HeaderContainer>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 import { Check, Minus, Plus } from 'phosphor-react'
@@ -26,6 +26,7 @@ import {
   WishListContent,
 } from './styles'
 import { RelatedProducts } from './components/RelatedProducts'
+import { Context } from '../../contexts/UserContext'
 
 type ProductProps = {
   id: number
@@ -46,6 +47,8 @@ type RelatedProductsProps = {
 }
 
 export function Product() {
+  const { carts, dispatch } = useContext(Context)
+
   const [product, setProduct] = useState<ProductProps>()
   const [relatedProducts, setRelatedProducts] = useState<
     RelatedProductsProps[]
@@ -69,6 +72,14 @@ export function Product() {
 
     getProductItem()
   }, [params.id])
+
+  function handleAddToCart(product: ProductProps) {
+    dispatch({
+      type: 'ADD_TO_CART',
+      payload: product,
+    })
+    console.log(carts)
+  }
 
   const isDisabledButton = amountProduct <= 1
 
@@ -105,7 +116,9 @@ export function Product() {
               </QuantityContent>
             </QuantityContainer>
 
-            <ButtonAmountProduct>Add to cart</ButtonAmountProduct>
+            <ButtonAmountProduct onClick={() => handleAddToCart(product)}>
+              Add to cart
+            </ButtonAmountProduct>
           </AmountProductContent>
 
           <WishListContent>
@@ -148,7 +161,7 @@ export function Product() {
       </TabsProductContainer>
 
       <RelatedProductsContainer>
-        <h2>Realted Products</h2>
+        <h2>Related Products</h2>
         <RelatedProductsContent>
           {relatedProducts.map((relatedProduct) => (
             <RelatedProducts
