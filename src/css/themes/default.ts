@@ -22,4 +22,6 @@ export const defaultTheme = {
   'icon-instagram': '#d83169',
   'icon-twitter': '#55acee',
   'icon-facebook': '#3b5998',
+
+  'red-off': '#AB222E',
 }

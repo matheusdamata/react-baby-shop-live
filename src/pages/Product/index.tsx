@@ -27,15 +27,7 @@ import {
 } from './styles'
 import { RelatedProducts } from './components/RelatedProducts'
 import { Context } from '../../contexts/UserContext'
-
-type ProductProps = {
-  id: number
-  description: string
-  imageUrl: string
-  name: string
-  stock: number
-  value: number
-}
+import { ProductProps, WishlistProps } from '../../@types/global-types'
 
 type RelatedProductsProps = {
   id: number
@@ -47,7 +39,7 @@ type RelatedProductsProps = {
 }
 
 export function Product() {
-  const { carts, dispatch } = useContext(Context)
+  const { dispatch } = useContext(Context)
 
   const [product, setProduct] = useState<ProductProps>()
   const [relatedProducts, setRelatedProducts] = useState<
@@ -78,7 +70,13 @@ export function Product() {
       type: 'ADD_TO_CART',
       payload: product,
     })
-    console.log(carts)
+  }
+
+  function handleAddWishlist(product: WishlistProps) {
+    dispatch({
+      type: 'ADD_TO_WISHLIST',
+      payload: product,
+    })
   }
 
   const isDisabledButton = amountProduct <= 1
@@ -116,13 +114,13 @@ export function Product() {
               </QuantityContent>
             </QuantityContainer>
 
-            <ButtonAmountProduct onClick={() => handleAddToCart(product)}>
+            <ButtonAmountProduct onClick={() => handleAddToCart(product!)}>
               Add to cart
             </ButtonAmountProduct>
           </AmountProductContent>
 
           <WishListContent>
-            <ButtonWishList>
+            <ButtonWishList onClick={() => handleAddWishlist(product!)}>
               <Check size={18} weight="bold" />
               BROWSE WISHLIST
             </ButtonWishList>

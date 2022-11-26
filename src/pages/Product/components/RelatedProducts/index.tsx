@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom'
+
 import { Container } from './styles'
 
 type RelatedProductType = {
@@ -14,8 +16,14 @@ type RelatedProductProps = {
 }
 
 export function RelatedProducts({ relatedProduct }: RelatedProductProps) {
+  const navigate = useNavigate()
+
+  function handleRelatedProduct() {
+    navigate(`/product/${relatedProduct.id}`)
+  }
+
   return (
-    <Container>
+    <Container onClick={handleRelatedProduct}>
       <img src={relatedProduct.imageUrl} alt="Imagem do produto" />
       <strong>{relatedProduct.name}</strong>
       <span>

@@ -27,7 +27,7 @@ const searchFormSchema = z.object({
 type SearchFormInputs = z.infer<typeof searchFormSchema>
 
 export function Header() {
-  const { carts } = useContext(Context)
+  const { carts, wishlist } = useContext(Context)
 
   const { register, handleSubmit, reset } = useForm<SearchFormInputs>({
     resolver: zodResolver(searchFormSchema),
@@ -43,12 +43,17 @@ export function Header() {
     try {
       const json = api.searchProducts(data.query)
       const response = await json
+      console.log(response)
     } catch (e) {
       console.error(e)
     } finally {
       reset()
     }
     return console.log(data.query)
+  }
+
+  function handleOpenWishlist() {
+    navigate('/wishlist')
   }
 
   return (
@@ -78,9 +83,10 @@ export function Header() {
           </button>
         </SearchContainer>
         <ButtonsContainer>
-          <ButtonContent variant="wishlist">
+          <ButtonContent variant="wishlist" onClick={handleOpenWishlist}>
             <Heart size={25} weight="regular" />
             Wishlist
+            {wishlist.length > 0 ? <span>{wishlist.length}</span> : null}
           </ButtonContent>
           <ButtonContent variant="mybag">
             <Handbag size={25} weight="bold" />
