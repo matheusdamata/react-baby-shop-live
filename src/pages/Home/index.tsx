@@ -59,8 +59,9 @@ export function Home() {
     fetchProducts()
   }, [])
 
-  function handleViewProduct(id: number) {
-    navigate(`/product/${id}`)
+  function handleViewProduct(name: string, id: number) {
+    const formatterRoute = name.replace(' ', '-').toLowerCase()
+    navigate(`/product/${formatterRoute}`, { state: { id } })
   }
 
   return (
@@ -105,7 +106,7 @@ export function Home() {
         {products.map((product) => (
           <ProductContent
             key={product.id}
-            onClick={() => handleViewProduct(product.id)}
+            onClick={() => handleViewProduct(product.name, product.id)}
           >
             <img src={product.imageUrl} alt="Imagem do produto" />
             <strong>{product.name}</strong>

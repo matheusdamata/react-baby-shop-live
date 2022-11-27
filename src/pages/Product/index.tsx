@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 import { Check, Minus, Plus } from 'phosphor-react'
 
@@ -28,6 +28,7 @@ import {
 import { RelatedProducts } from './components/RelatedProducts'
 import { Context } from '../../contexts/UserContext'
 import { ProductProps, WishlistProps } from '../../@types/global-types'
+import { useScrollToTop } from '../../hooks/useScrollToTop'
 
 type RelatedProductsProps = {
   id: number
@@ -47,12 +48,12 @@ export function Product() {
   >([])
   const [amountProduct, setAmountProduct] = useState(1)
 
-  const params = useParams()
+  const location = useLocation()
 
   useEffect(() => {
     async function getProductItem() {
       try {
-        const product = await api.getProduct(Number(params.id))
+        const product = await api.getProduct(Number(location.state.id))
         const relatedProducts = await api.getRelatedProducts()
 
         setProduct(product)
@@ -63,7 +64,7 @@ export function Product() {
     }
 
     getProductItem()
-  }, [params.id])
+  }, [location.state.id])
 
   function handleAddToCart(product: ProductProps) {
     dispatch({
@@ -80,6 +81,8 @@ export function Product() {
   }
 
   const isDisabledButton = amountProduct <= 1
+
+  useScrollToTop()
 
   return (
     <Container>
