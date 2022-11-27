@@ -19,6 +19,7 @@ import api from '../../config/api'
 import { SubscribeToNewsletter } from './components/SubscribeToNewsletter'
 import { Instagram } from './components/Instagram'
 import { useNavigate } from 'react-router-dom'
+import { priceFormatter } from '../../utils/formatter'
 
 type ProductsType = {
   id: number
@@ -60,7 +61,7 @@ export function Home() {
   }, [])
 
   function handleViewProduct(name: string, id: number) {
-    const formatterRoute = name.replace(' ', '-').toLowerCase()
+    const formatterRoute = name.replace(/ /g, '-').toLowerCase()
     navigate(`/product/${formatterRoute}`, { state: { id } })
   }
 
@@ -110,12 +111,7 @@ export function Home() {
           >
             <img src={product.imageUrl} alt="Imagem do produto" />
             <strong>{product.name}</strong>
-            <span>
-              R${' '}
-              {product.value.toLocaleString('pt-br', {
-                minimumFractionDigits: 2,
-              })}
-            </span>
+            <span>{priceFormatter.format(product.value)}</span>
           </ProductContent>
         ))}
       </ProductsContainer>

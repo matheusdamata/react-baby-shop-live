@@ -31,18 +31,6 @@ export const WishContainer = styled.div`
     margin: 0 1rem;
   }
 
-  a {
-    font-weight: 400;
-    text-decoration: none;
-    color: ${(props) => props.theme['base-text-footer']};
-
-    margin-left: 1rem;
-
-    &:hover {
-      color: ${(props) => props.theme['base-button']};
-    }
-  }
-
   svg {
     cursor: pointer;
   }
@@ -58,6 +46,20 @@ export const ButtonRemove = styled.button`
 
   background: transparent;
   border: 0;
+`
+
+export const WishView = styled.a`
+  font-weight: 400;
+  text-decoration: none;
+  color: ${(props) => props.theme['base-text-footer']};
+
+  margin-left: 1rem;
+
+  cursor: pointer;
+
+  &:hover {
+    color: ${(props) => props.theme['base-button']};
+  }
 `
 
 type SpanTextProps = {

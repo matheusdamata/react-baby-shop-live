@@ -29,6 +29,7 @@ import { RelatedProducts } from './components/RelatedProducts'
 import { Context } from '../../contexts/UserContext'
 import { ProductProps, WishlistProps } from '../../@types/global-types'
 import { useScrollToTop } from '../../hooks/useScrollToTop'
+import { priceFormatter } from '../../utils/formatter'
 
 type RelatedProductsProps = {
   id: number
@@ -92,12 +93,7 @@ export function Product() {
         </LeftSide>
         <RightSide>
           <h1>{product?.name}</h1>
-          <strong>
-            R${' '}
-            {product?.value.toLocaleString('pt-br', {
-              minimumFractionDigits: 2,
-            })}
-          </strong>
+          <strong>{priceFormatter.format(product!?.value)}</strong>
           <p>{product?.description}</p>
 
           <AmountProductContent>

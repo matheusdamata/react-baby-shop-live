@@ -19,7 +19,8 @@ export function RelatedProducts({ relatedProduct }: RelatedProductProps) {
   const navigate = useNavigate()
 
   function handleRelatedProduct() {
-    navigate(`/product/${relatedProduct.id}`)
+    const formatterRoute = relatedProduct.name.replace(/ /g, '-').toLowerCase()
+    navigate(`/product/${formatterRoute}`, { state: { id: relatedProduct.id } })
   }
 
   return (
