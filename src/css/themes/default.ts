@@ -23,5 +23,7 @@ export const defaultTheme = {
   'icon-twitter': '#55acee',
   'icon-facebook': '#3b5998',
 
+  'newsletter-button-contrast': '#f2698e',
+
   'red-off': '#AB222E',
 }

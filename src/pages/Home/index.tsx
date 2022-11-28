@@ -96,11 +96,8 @@ export function Home() {
       </CategoryButtonsContainer>
 
       <PopularProductsContainer>
-        <h1>Popular Products</h1>
-        <p>
-          Made with care for your little ones, our products are perfect for
-          every occasion. Check it out.
-        </p>
+        <h1>New Arrivals</h1>
+        <p>Check out sweet summer collection inspired by the sea.</p>
       </PopularProductsContainer>
 
       <ProductsContainer>

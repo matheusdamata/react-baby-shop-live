@@ -23,9 +23,11 @@ export const HeaderContainer = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 
-  margin: 2rem 0;
+  width: 70rem;
+
+  margin: 2rem auto;
 
   & > img {
     width: 4rem;

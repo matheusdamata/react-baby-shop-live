@@ -1,17 +1,27 @@
-import { Heart } from 'phosphor-react'
-import { Container, Content } from './styles'
+import { CaretRight } from 'phosphor-react'
+import { Container, InputNewSletter, SideLeft, SideRight } from './styles'
+
+import Banner from '../../../../assets/banner/newsletter-banner.jpg'
 
 export function SubscribeToNewsletter() {
   return (
     <Container>
-      <Content>
-        <h1>Subscribe to newsletter</h1>
-        <input type="text" placeholder="Your email..." />
+      <SideLeft>
+        <h1>Newsletter</h1>
+
+        <InputNewSletter type="text" placeholder="Your Name" />
+        <InputNewSletter type="text" placeholder="Your email" />
+
         <button>
           Subscribe
-          <Heart size={24} weight="fill" />
+          <span>
+            <CaretRight size={24} weight="fill" />
+          </span>
         </button>
-      </Content>
+      </SideLeft>
+      <SideRight>
+        <img src={Banner} alt="Banner do newsletter" />
+      </SideRight>
     </Container>
   )
 }
