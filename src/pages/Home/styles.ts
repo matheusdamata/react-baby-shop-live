@@ -9,7 +9,8 @@ export const Container = styled.main`
 `
 
 export const CategoryButtonsContainer = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
   flex-direction: row;
 
   margin: 2rem 0;
@@ -99,7 +100,7 @@ export const PopularProductsContainer = styled.section`
 
   text-align: center;
 
-  margin: 4rem 0;
+  margin: 0 0 4rem;
 
   h1 {
     font-size: 3rem;
@@ -120,7 +121,7 @@ export const PopularProductsContainer = styled.section`
 export const ProductsContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  gap: 1rem;
 
   margin-bottom: 2rem;
 
@@ -151,7 +152,9 @@ export const ProductContent = styled.div`
 
   img {
     width: auto;
-    height: 250px;
+    height: 350px;
+
+    object-fit: contain;
 
     transition: all 0.2s;
 

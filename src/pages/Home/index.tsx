@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react'
 
 import {
-  CategoryBorderButton,
-  CategoryButtonContent,
-  CategoryButtonInfo,
   CategoryButtonsContainer,
   Container,
   InstagramContainer,
@@ -13,13 +10,19 @@ import {
 } from './styles'
 import { Banner } from './components/Banner'
 
-import CategoryButtonBoy from '../../assets/category-buttons/boy.png'
-import CategoryButtonGirl from '../../assets/category-buttons/girl.png'
 import api from '../../config/api'
 import { SubscribeToNewsletter } from './components/SubscribeToNewsletter'
 import { Instagram } from './components/Instagram'
 import { useNavigate } from 'react-router-dom'
 import { priceFormatter } from '../../utils/formatter'
+import { CategoryButtons } from './components/CategoryButtons'
+
+import CategoryIconBabies from '../../assets/category/babies.png'
+import CategoryIconOutfits from '../../assets/category/outfits.png'
+import CategoryIconKids from '../../assets/category/kids.png'
+import CategoryIconNurturing from '../../assets/category/nurturing.png'
+import CategoryIconGirls from '../../assets/category/girls.png'
+import CategoryIconChildCare from '../../assets/category/child-care.png'
 
 type ProductsType = {
   id: number
@@ -70,29 +73,12 @@ export function Home() {
       <Banner />
 
       <CategoryButtonsContainer>
-        <CategoryBorderButton variant="girl">
-          <CategoryButtonContent>
-            <img src={CategoryButtonGirl} alt="" />
-            <CategoryButtonInfo>
-              <strong>Modern Girl</strong>
-              <span>
-                From school to the seaside. Summer inspired collection.
-              </span>
-            </CategoryButtonInfo>
-          </CategoryButtonContent>
-        </CategoryBorderButton>
-
-        <CategoryBorderButton variant="boy">
-          <CategoryButtonContent>
-            <img src={CategoryButtonBoy} alt="" />
-            <CategoryButtonInfo>
-              <strong>Urban Boy</strong>
-              <span>
-                Designed to follow your child though fun and adventures.
-              </span>
-            </CategoryButtonInfo>
-          </CategoryButtonContent>
-        </CategoryBorderButton>
+        <CategoryButtons icon={CategoryIconBabies} title="Babies" />
+        <CategoryButtons icon={CategoryIconOutfits} title="Outfits" />
+        <CategoryButtons icon={CategoryIconKids} title="Kids" />
+        <CategoryButtons icon={CategoryIconNurturing} title="Nurturing" />
+        <CategoryButtons icon={CategoryIconGirls} title="Girls" />
+        <CategoryButtons icon={CategoryIconChildCare} title="Child Care" />
       </CategoryButtonsContainer>
 
       <PopularProductsContainer>

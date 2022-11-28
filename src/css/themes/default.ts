@@ -11,6 +11,9 @@ export const defaultTheme = {
   'base-text-amount': '#9f9e9e',
   'base-border-amount': '#eeeeee',
 
+  'category-color-blue-100': '#f5fbfb',
+  'category-color-blue-300': '#9ad8d4',
+
   'tabs-root': '#f7fdfe',
   'tabs-root-border': '#d7f5fa',
 
