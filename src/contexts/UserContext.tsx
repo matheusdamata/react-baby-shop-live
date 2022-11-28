@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useReducer } from 'react'
+import React, { createContext, ReactNode, useEffect, useReducer } from 'react'
 import { CartProps, WishlistProps } from '../@types/global-types'
 import { userReducer } from '../reducers/userReducer'
 
@@ -15,12 +15,30 @@ type ContextProviderType = {
 export const Context = createContext({} as UserContextType)
 
 export const ContextProvider = ({ children }: ContextProviderType) => {
-  const [userState, dispatch] = useReducer(userReducer, {
-    carts: [],
-    wishlist: [],
-  })
+  const [userState, dispatch] = useReducer(
+    userReducer,
+    {
+      carts: [],
+      wishlist: [],
+    },
+    () => {
+      const storedStateAsJSON = localStorage.getItem(
+        '@baby-shop:baby-shop-state-1.0.0',
+      )
+
+      if (storedStateAsJSON) {
+        return JSON.parse(storedStateAsJSON)
+      }
+    },
+  )
 
   const { carts, wishlist } = userState
+
+  useEffect(() => {
+    const stateJSON = JSON.stringify(userState)
+
+    localStorage.setItem('@baby-shop:baby-shop-state-1.0.0', stateJSON)
+  }, [userState])
 
   return (
     <Context.Provider
