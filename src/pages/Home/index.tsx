@@ -23,15 +23,7 @@ import CategoryIconKids from '../../assets/category/kids.png'
 import CategoryIconNurturing from '../../assets/category/nurturing.png'
 import CategoryIconGirls from '../../assets/category/girls.png'
 import CategoryIconChildCare from '../../assets/category/child-care.png'
-
-type ProductsType = {
-  id: number
-  imageUrl: string
-  name: string
-  description: string
-  value: number
-  stock: number
-}
+import { ProductProps } from '../../@types/global-types'
 
 type InstagramType = {
   id: number
@@ -40,7 +32,7 @@ type InstagramType = {
 }
 
 export function Home() {
-  const [products, setProducts] = useState<ProductsType[]>([])
+  const [products, setProducts] = useState<ProductProps[]>([])
   const [photosPostInstagram, setPhotosPostInstagram] = useState<
     InstagramType[]
   >([])

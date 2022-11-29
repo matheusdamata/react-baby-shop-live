@@ -27,7 +27,7 @@ import {
 } from './styles'
 import { RelatedProducts } from './components/RelatedProducts'
 import { Context } from '../../contexts/UserContext'
-import { ProductProps, WishlistProps } from '../../@types/global-types'
+import { ProductProps } from '../../@types/global-types'
 import { useScrollToTop } from '../../hooks/useScrollToTop'
 import { priceFormatter } from '../../utils/formatter'
 
@@ -41,24 +41,24 @@ type RelatedProductsProps = {
 }
 
 export function Product() {
-  const { dispatch } = useContext(Context)
-
   const [product, setProduct] = useState<ProductProps>()
   const [relatedProducts, setRelatedProducts] = useState<
     RelatedProductsProps[]
   >([])
   const [amountProduct, setAmountProduct] = useState(1)
 
+  const { dispatch } = useContext(Context)
+
   const location = useLocation()
 
   useEffect(() => {
     async function getProductItem() {
       try {
-        const product = await api.getProduct(Number(location.state.id))
+        const json = await api.getProduct(parseInt(location.state.id))
         const relatedProducts = await api.getRelatedProducts()
 
-        setProduct(product)
-        setRelatedProducts(relatedProducts)
+        setProduct(() => json)
+        setRelatedProducts(() => relatedProducts)
       } catch (e) {
         console.error('Tente novamente mais tarde!', e)
       }
@@ -74,7 +74,7 @@ export function Product() {
     })
   }
 
-  function handleAddWishlist(product: WishlistProps) {
+  function handleAddWishlist(product: ProductProps) {
     dispatch({
       type: 'ADD_TO_WISHLIST',
       payload: product,
@@ -84,6 +84,10 @@ export function Product() {
   const isDisabledButton = amountProduct <= 1
 
   useScrollToTop()
+
+  if (!product) {
+    return null
+  }
 
   return (
     <Container>
@@ -113,13 +117,13 @@ export function Product() {
               </QuantityContent>
             </QuantityContainer>
 
-            <ButtonAmountProduct onClick={() => handleAddToCart(product!)}>
+            <ButtonAmountProduct onClick={() => handleAddToCart(product)}>
               Add to cart
             </ButtonAmountProduct>
           </AmountProductContent>
 
           <WishListContent>
-            <ButtonWishList onClick={() => handleAddWishlist(product!)}>
+            <ButtonWishList onClick={() => handleAddWishlist(product)}>
               <Check size={18} weight="bold" />
               BROWSE WISHLIST
             </ButtonWishList>

@@ -17,14 +17,14 @@ export const Container = styled.section`
 `
 
 export const SideLeft = styled.div`
-  width: 45%;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  padding: 3.75rem 2.1875rem 3.375rem;
+  width: 470px;
+
+  padding: 1.8rem;
   gap: 1rem;
 
   border-radius: 8px;
@@ -32,7 +32,7 @@ export const SideLeft = styled.div`
   background: ${(props) => props.theme['base-input-contrast']};
 
   h1 {
-    font-size: 3.125rem;
+    font-size: 2.5rem;
   }
 
   button {
@@ -86,7 +86,6 @@ export const InputNewSletter = styled.input`
   display: flex;
   flex: 1;
 
-  height: 60px;
   width: 100%;
 
   border-radius: 8px;
@@ -112,8 +111,8 @@ export const SideRight = styled.div`
   display: flex;
 
   img {
-    width: auto;
-    height: 27.875rem;
+    width: 100%;
+    height: auto;
     object-fit: cover;
     border-radius: 8px;
   }

@@ -18,12 +18,3 @@ export type CartProps = {
   value: number
   amount: number
 }
-
-export type WishlistProps = {
-  id: number
-  description: string
-  imageUrl: string
-  name: string
-  stock: number
-  value: number
-}

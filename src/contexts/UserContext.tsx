@@ -1,10 +1,10 @@
 import React, { createContext, ReactNode, useEffect, useReducer } from 'react'
-import { CartProps, WishlistProps } from '../@types/global-types'
+import { CartProps, ProductProps } from '../@types/global-types'
 import { userReducer } from '../reducers/userReducer'
 
 type UserContextType = {
   carts: CartProps[]
-  wishlist: WishlistProps[]
+  wishlist: ProductProps[]
   dispatch: React.Dispatch<any>
 }
 
@@ -30,7 +30,12 @@ export const ContextProvider = ({ children }: ContextProviderType) => {
         return JSON.parse(storedStateAsJSON)
       }
 
-      return {}
+      console.log(storedStateAsJSON)
+
+      return {
+        carts: [],
+        wishlist: [],
+      }
     },
   )
 

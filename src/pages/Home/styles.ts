@@ -152,7 +152,7 @@ export const ProductContent = styled.div`
 
   img {
     width: auto;
-    height: 350px;
+    height: 300px;
 
     object-fit: contain;
 

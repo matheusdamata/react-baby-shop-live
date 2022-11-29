@@ -1,28 +1,27 @@
 import produce from 'immer'
 
-import { CartProps, WishlistProps } from '../@types/global-types'
+import { CartProps, ProductProps } from '../@types/global-types'
 
 type UserType = {
   carts: CartProps[]
-  wishlist: WishlistProps[]
+  wishlist: ProductProps[]
 }
 
 export const userReducer = (state: UserType, action: any) => {
   switch (action.type) {
     case 'ADD_TO_CART': {
       return produce(state, (draft) => {
-        draft.carts.push(action.payload)
+        draft.carts?.push(action.payload)
       })
     }
     case 'ADD_TO_WISHLIST': {
-      console.log('Entrou')
       const currentProductIndex = state.wishlist?.findIndex((product) => {
         return product.id === action.payload.id
       })
 
       if (currentProductIndex < 0) {
         return produce(state, (draft) => {
-          draft.wishlist.push(action.payload)
+          draft.wishlist?.push(action.payload)
         })
       }
       return state
@@ -30,7 +29,7 @@ export const userReducer = (state: UserType, action: any) => {
     case 'REMOVE_TO_WISHLIST': {
       return {
         ...state,
-        wishlist: state.wishlist.filter(
+        wishlist: state.wishlist?.filter(
           (product) => product.id !== action.payload,
         ),
       }
