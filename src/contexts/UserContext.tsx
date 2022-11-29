@@ -23,12 +23,14 @@ export const ContextProvider = ({ children }: ContextProviderType) => {
     },
     () => {
       const storedStateAsJSON = localStorage.getItem(
-        '@baby-shop:baby-shop-state-1.0.0',
+        '@baby-shop:baby-shop-state-1.0.5',
       )
 
       if (storedStateAsJSON) {
         return JSON.parse(storedStateAsJSON)
       }
+
+      return {}
     },
   )
 
@@ -37,7 +39,7 @@ export const ContextProvider = ({ children }: ContextProviderType) => {
   useEffect(() => {
     const stateJSON = JSON.stringify(userState)
 
-    localStorage.setItem('@baby-shop:baby-shop-state-1.0.0', stateJSON)
+    localStorage.setItem('@baby-shop:baby-shop-state-1.0.5', stateJSON)
   }, [userState])
 
   return (

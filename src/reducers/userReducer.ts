@@ -15,7 +15,8 @@ export const userReducer = (state: UserType, action: any) => {
       })
     }
     case 'ADD_TO_WISHLIST': {
-      const currentProductIndex = state.wishlist.findIndex((product) => {
+      console.log('Entrou')
+      const currentProductIndex = state.wishlist?.findIndex((product) => {
         return product.id === action.payload.id
       })
 

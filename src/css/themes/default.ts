@@ -11,8 +11,12 @@ export const defaultTheme = {
   'base-text-amount': '#9f9e9e',
   'base-border-amount': '#eeeeee',
 
+  'category-color-limon-100': '#fbfcf3',
+  'category-color-limon-300': '#dce086',
   'category-color-blue-100': '#f5fbfb',
   'category-color-blue-300': '#9ad8d4',
+  'category-color-pink-100': '#fff8fa',
+  'category-color-pink-300': '#ffc1d2',
 
   'tabs-root': '#f7fdfe',
   'tabs-root-border': '#d7f5fa',

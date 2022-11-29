@@ -202,12 +202,12 @@ export function Header() {
           <ButtonContent variant="wishlist" onClick={handleOpenWishlist}>
             <Heart size={25} weight="regular" />
             Wishlist
-            {wishlist.length > 0 ? <span>{wishlist.length}</span> : null}
+            {wishlist?.length > 0 ? <span>{wishlist.length}</span> : null}
           </ButtonContent>
           <ButtonContent variant="mybag">
             <Handbag size={25} weight="bold" />
             My bag
-            {carts.length > 0 ? <span>{carts.length}</span> : null}
+            {carts?.length > 0 ? <span>{carts.length}</span> : null}
           </ButtonContent>
         </ButtonsContainer>
       </HeaderContainer>

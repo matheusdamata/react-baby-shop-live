@@ -1,6 +1,16 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+const BACKGROUND_COLORS = {
+  limon: 'category-color-limon-100',
+  blue: 'category-color-blue-100',
+  pink: 'category-color-pink-100',
+} as const
+
+type BackgroundColorProps = {
+  backgroundColor: keyof typeof BACKGROUND_COLORS
+}
+
+export const Container = styled.div<BackgroundColorProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,7 +24,8 @@ export const Container = styled.div`
 
   cursor: pointer;
 
-  background: ${(props) => props.theme['category-color-blue-100']};
+  background: ${(props) =>
+    props.theme[BACKGROUND_COLORS[props.backgroundColor]]};
 
   img {
     width: auto;

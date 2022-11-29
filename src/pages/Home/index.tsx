@@ -73,12 +73,28 @@ export function Home() {
       <Banner />
 
       <CategoryButtonsContainer>
-        <CategoryButtons icon={CategoryIconBabies} title="Babies" />
-        <CategoryButtons icon={CategoryIconOutfits} title="Outfits" />
-        <CategoryButtons icon={CategoryIconKids} title="Kids" />
-        <CategoryButtons icon={CategoryIconNurturing} title="Nurturing" />
-        <CategoryButtons icon={CategoryIconGirls} title="Girls" />
-        <CategoryButtons icon={CategoryIconChildCare} title="Child Care" />
+        <CategoryButtons
+          icon={CategoryIconBabies}
+          title="Babies"
+          color="limon"
+        />
+        <CategoryButtons
+          icon={CategoryIconOutfits}
+          title="Outfits"
+          color="blue"
+        />
+        <CategoryButtons icon={CategoryIconKids} title="Kids" color="pink" />
+        <CategoryButtons
+          icon={CategoryIconNurturing}
+          title="Nurturing"
+          color="limon"
+        />
+        <CategoryButtons icon={CategoryIconGirls} title="Girls" color="blue" />
+        <CategoryButtons
+          icon={CategoryIconChildCare}
+          title="Child Care"
+          color="pink"
+        />
       </CategoryButtonsContainer>
 
       <PopularProductsContainer>

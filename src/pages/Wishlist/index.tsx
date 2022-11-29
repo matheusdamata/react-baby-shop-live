@@ -44,7 +44,7 @@ export function Wishlist() {
       <h1>Wishlist</h1>
 
       <Content>
-        {wishlist.map((wish) => (
+        {wishlist?.map((wish) => (
           <WishContainer key={wish.id}>
             <ButtonRemove onClick={() => handleRemoveProduct(wish.id)}>
               <X size={18} weight="fill" />
