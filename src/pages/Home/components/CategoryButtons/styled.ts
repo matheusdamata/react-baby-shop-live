@@ -6,11 +6,18 @@ const BACKGROUND_COLORS = {
   pink: 'category-color-pink-100',
 } as const
 
-type BackgroundColorProps = {
+const BORDER_COLORS = {
+  limon: 'category-color-limon-300',
+  blue: 'category-color-blue-300',
+  pink: 'category-color-pink-300',
+} as const
+
+type ColorProps = {
   backgroundColor: keyof typeof BACKGROUND_COLORS
+  borderColor: keyof typeof BORDER_COLORS
 }
 
-export const Container = styled.div<BackgroundColorProps>`
+export const Container = styled.div<ColorProps>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,7 +25,7 @@ export const Container = styled.div<BackgroundColorProps>`
   width: 160px;
   height: auto;
 
-  border: 2px dashed ${(props) => props.theme['category-color-blue-300']};
+  border: 2px dashed ${(props) => props.theme[BORDER_COLORS[props.borderColor]]};
 
   padding: 1.75rem 0 1.375rem;
 

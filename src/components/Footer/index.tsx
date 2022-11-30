@@ -64,7 +64,15 @@ export function Footer() {
       <FooterDescriptionAndCards>
         <FooterDescriptionAndCardsContent>
           <span>
-            © 2018 <a href="">Live stream</a>, All Rights Reserved
+            © 2022{' '}
+            <a
+              href="https://www.matheusdamatag.com.br"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Matheus Silva
+            </a>
+            , All Rights Reserved
           </span>
           <img src={PaymentsImage} alt="Bandeiras aceitas como pagamento" />
         </FooterDescriptionAndCardsContent>

@@ -1,14 +1,15 @@
 import { Container } from './styled'
 
-type CategoryButtonsProps = {
-  icon: string
-  title: string
-  color: 'limon' | 'blue' | 'pink'
-}
+import { CategoryButtonsProps } from '../../../../helpers/homeCategoryButtons'
 
-export function CategoryButtons({ icon, title, color }: CategoryButtonsProps) {
+export function CategoryButtons({
+  icon,
+  title,
+  color,
+  border,
+}: CategoryButtonsProps) {
   return (
-    <Container backgroundColor={color}>
+    <Container backgroundColor={color} borderColor={border}>
       <img src={icon} alt="" />
       <h6>{title}</h6>
     </Container>

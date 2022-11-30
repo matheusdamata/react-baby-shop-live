@@ -17,13 +17,8 @@ import { useNavigate } from 'react-router-dom'
 import { priceFormatter } from '../../utils/formatter'
 import { CategoryButtons } from './components/CategoryButtons'
 
-import CategoryIconBabies from '../../assets/category/babies.png'
-import CategoryIconOutfits from '../../assets/category/outfits.png'
-import CategoryIconKids from '../../assets/category/kids.png'
-import CategoryIconNurturing from '../../assets/category/nurturing.png'
-import CategoryIconGirls from '../../assets/category/girls.png'
-import CategoryIconChildCare from '../../assets/category/child-care.png'
 import { ProductProps } from '../../@types/global-types'
+import { homeCategoryButtons } from '../../helpers/homeCategoryButtons'
 
 type InstagramType = {
   id: number
@@ -65,28 +60,15 @@ export function Home() {
       <Banner />
 
       <CategoryButtonsContainer>
-        <CategoryButtons
-          icon={CategoryIconBabies}
-          title="Babies"
-          color="limon"
-        />
-        <CategoryButtons
-          icon={CategoryIconOutfits}
-          title="Outfits"
-          color="blue"
-        />
-        <CategoryButtons icon={CategoryIconKids} title="Kids" color="pink" />
-        <CategoryButtons
-          icon={CategoryIconNurturing}
-          title="Nurturing"
-          color="limon"
-        />
-        <CategoryButtons icon={CategoryIconGirls} title="Girls" color="blue" />
-        <CategoryButtons
-          icon={CategoryIconChildCare}
-          title="Child Care"
-          color="pink"
-        />
+        {homeCategoryButtons.map((button) => (
+          <CategoryButtons
+            key={button.title}
+            icon={button.icon}
+            title={button.title}
+            color={button.color}
+            border={button.border}
+          />
+        ))}
       </CategoryButtonsContainer>
 
       <PopularProductsContainer>
