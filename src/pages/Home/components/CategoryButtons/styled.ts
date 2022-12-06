@@ -34,9 +34,17 @@ export const Container = styled.div<ColorProps>`
   background: ${(props) =>
     props.theme[BACKGROUND_COLORS[props.backgroundColor]]};
 
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
   img {
     width: auto;
     height: 97px;
+
+    object-fit: contain;
   }
 
   h6 {

@@ -53,34 +53,25 @@ export const MenuContainer = styled.div`
   display: flex;
   gap: 1rem;
   margin: 0 2rem;
-
-  & .active {
-    color: ${(props) => props.theme['base-button']};
-  }
 `
 
-export const MenuNavLink = styled(NavLink)`
+export const MenuLink = styled(NavLink)`
+  display: flex;
+  flex-direction: column;
+
   font-size: 1.25rem;
   font-weight: bold;
   text-decoration: none;
   color: ${(props) => props.theme['base-text']};
 
-  border: 0;
-
   position: relative;
 
-  hr {
-    display: none;
-
-    width: 100%;
-    height: 10px;
-
+  & > span {
     position: absolute;
-    margin-top: -0.75rem;
-
-    border: 0;
-
+    width: 100%;
+    height: 7px;
     background: ${(props) => props.theme['base-button-hover']};
+    margin-top: 20px;
     z-index: -1;
   }
 `

@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react'
 
+import Aos from 'aos'
+import 'aos/dist/aos.css'
+
 import {
   CategoryButtonsContainer,
   Container,
@@ -35,6 +38,10 @@ export function Home() {
   const navigate = useNavigate()
 
   useEffect(() => {
+    Aos.init({
+      duration: 500,
+    })
+
     const fetchProducts = async () => {
       try {
         const jsonProducts = await api.getProducts()
@@ -59,7 +66,7 @@ export function Home() {
     <Container>
       <Banner />
 
-      <CategoryButtonsContainer>
+      <CategoryButtonsContainer data-aos="fade-up">
         {homeCategoryButtons.map((button) => (
           <CategoryButtons
             key={button.title}
@@ -71,12 +78,12 @@ export function Home() {
         ))}
       </CategoryButtonsContainer>
 
-      <PopularProductsContainer>
+      <PopularProductsContainer data-aos="fade-up">
         <h1>New Arrivals</h1>
         <p>Check out sweet summer collection inspired by the sea.</p>
       </PopularProductsContainer>
 
-      <ProductsContainer>
+      <ProductsContainer data-aos="fade-up">
         {products.map((product) => (
           <ProductContent
             key={product.id}
@@ -91,7 +98,7 @@ export function Home() {
 
       <SubscribeToNewsletter />
 
-      <InstagramContainer>
+      <InstagramContainer data-aos="fade-up">
         {photosPostInstagram.map((photo) => (
           <Instagram key={photo.id} image={photo.imageUrl} url={photo.url} />
         ))}
