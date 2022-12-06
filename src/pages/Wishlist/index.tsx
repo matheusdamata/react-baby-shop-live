@@ -1,5 +1,6 @@
+import Aos from 'aos'
 import { X } from 'phosphor-react'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ProductProps } from '../../@types/global-types'
 import { Context } from '../../contexts/UserContext'
@@ -9,6 +10,7 @@ import {
   ButtonRemove,
   Container,
   Content,
+  EmptyCart,
   SpanText,
   WishContainer,
   WishView,
@@ -18,6 +20,12 @@ export function Wishlist() {
   const { wishlist, dispatch } = useContext(Context)
 
   const navigate = useNavigate()
+
+  useEffect(() => {
+    Aos.init({
+      duration: 500,
+    })
+  }, [])
 
   function handleAddToCart(wish: ProductProps) {
     dispatch({
@@ -44,35 +52,43 @@ export function Wishlist() {
       <h1>Wishlist</h1>
 
       <Content>
-        {wishlist?.map((wish) => (
-          <WishContainer key={wish.id}>
-            <ButtonRemove onClick={() => handleRemoveProduct(wish.id)}>
-              <X size={18} weight="fill" />
-            </ButtonRemove>
-            <img
-              src={wish.imageUrl}
-              alt="Imagem do produto adicionado aos favoritos"
-            />
-            <WishView onClick={() => handleViewProduct(wish.name, wish.id)}>
-              {wish.name}
-            </WishView>
+        {wishlist?.length > 0 ? (
+          <>
+            {wishlist?.map((wish) => (
+              <WishContainer key={wish.id} data-aos="fade-up">
+                <ButtonRemove onClick={() => handleRemoveProduct(wish.id)}>
+                  <X size={18} weight="fill" />
+                </ButtonRemove>
+                <img
+                  src={wish.imageUrl}
+                  alt="Imagem do produto adicionado aos favoritos"
+                />
+                <WishView onClick={() => handleViewProduct(wish.name, wish.id)}>
+                  {wish.name}
+                </WishView>
 
-            <span>{priceFormatter.format(wish.value)}</span>
+                <span>{priceFormatter.format(wish.value)}</span>
 
-            {wish.stock !== 0 ? (
-              <SpanText variant="instock">Product in stock</SpanText>
-            ) : (
-              <SpanText variant="ofstock">Product out of stock</SpanText>
-            )}
+                {wish.stock !== 0 ? (
+                  <SpanText variant="instock">Product in stock</SpanText>
+                ) : (
+                  <SpanText variant="ofstock">Product out of stock</SpanText>
+                )}
 
-            <ButtonAmountProduct
-              onClick={() => handleAddToCart(wish)}
-              disabled={!wish.stock}
-            >
-              Add to cart
-            </ButtonAmountProduct>
-          </WishContainer>
-        ))}
+                <ButtonAmountProduct
+                  onClick={() => handleAddToCart(wish)}
+                  disabled={!wish.stock}
+                >
+                  Add to cart
+                </ButtonAmountProduct>
+              </WishContainer>
+            ))}
+          </>
+        ) : (
+          <EmptyCart>
+            <strong>Your cart is currently empty.</strong>
+          </EmptyCart>
+        )}
       </Content>
     </Container>
   )

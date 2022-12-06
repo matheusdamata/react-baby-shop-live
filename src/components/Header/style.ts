@@ -92,6 +92,11 @@ export const SearchContainer = styled.form`
 
     border: 0;
 
+    &:hover {
+      transition: background-color 0.2s ease;
+      background: ${(props) => props.theme['icon-instagram']};
+    }
+
     & svg {
       color: ${(props) => props.theme.white};
     }

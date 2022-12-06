@@ -11,6 +11,10 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
 
+  max-height: 18.75rem;
+
+  overflow-y: auto;
+
   margin-top: 2rem;
   gap: 2rem;
 `
@@ -33,6 +37,18 @@ export const WishContainer = styled.div`
 
   svg {
     cursor: pointer;
+  }
+`
+
+export const EmptyCart = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 240px;
+
+  strong {
+    font-size: 1.625rem;
   }
 `
 

@@ -17,4 +17,5 @@ export type CartProps = {
   name: string
   value: number
   amount: number
+  stock: number
 }

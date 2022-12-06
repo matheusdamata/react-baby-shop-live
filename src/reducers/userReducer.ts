@@ -34,6 +34,12 @@ export const userReducer = (state: UserType, action: any) => {
         ),
       }
     }
+    case 'REMOVE_TO_CARTLIST': {
+      return {
+        ...state,
+        carts: state.carts?.filter((cart) => cart.id !== action.payload),
+      }
+    }
     default:
       return state
   }

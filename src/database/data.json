@@ -130,5 +130,17 @@
       "imageUrl": "http://localhost/instagram/05.jpg",
       "url": "https://www.instagram.com/"
     }
+  ],
+  "coupons": [
+    {
+      "id": 1,
+      "code": "sale",
+      "type": "fixed-value"
+    },
+    {
+      "id": 2,
+      "code": "blackfriday",
+      "type": "fixed-value"
+    }
   ]
 }

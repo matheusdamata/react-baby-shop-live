@@ -62,6 +62,10 @@ export function Header() {
     navigate('/wishlist')
   }
 
+  function handleOpenCart() {
+    navigate('/cart')
+  }
+
   return (
     <Container>
       <HeaderTopBar>Compre acima de R$250,00 e ganhe frete grátis</HeaderTopBar>
@@ -98,7 +102,7 @@ export function Header() {
             Wishlist
             {wishlist?.length > 0 ? <span>{wishlist.length}</span> : null}
           </ButtonContent>
-          <ButtonContent variant="mybag">
+          <ButtonContent variant="mybag" onClick={handleOpenCart}>
             <Handbag size={25} weight="bold" />
             My bag
             {carts?.length > 0 ? <span>{carts.length}</span> : null}
