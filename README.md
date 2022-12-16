@@ -20,7 +20,7 @@ Apresentar produtos através do back-end "fake" em JSON-SERVER, realizar o armaz
 #### Observação
 O armazenamento dos produtos está sendo feito através do JSON-SERVER com os dados disponíveis na pasta src/database/data.json
 
-### Instação
+### Instalação
 - `npm i`
 
 * Necessário possuir o JSON-SERVER, consulte https://www.npmjs.com/package/json-server para mais informações.
