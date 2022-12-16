@@ -30,8 +30,6 @@ export const ContextProvider = ({ children }: ContextProviderType) => {
         return JSON.parse(storedStateAsJSON)
       }
 
-      console.log(storedStateAsJSON)
-
       return {
         carts: [],
         wishlist: [],

@@ -142,5 +142,6 @@
       "code": "blackfriday",
       "type": "fixed-value"
     }
-  ]
+  ],
+  "assigned-newsletter": []
 }
